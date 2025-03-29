@@ -168,7 +168,7 @@ nav h1 {
 .auth-btn {
     font-family: 'Google Sans', sans-serif;
     display: block;
-    background-color: #673ab7; /* Purple color */
+    background-color: #673ab7;
     border: none;
     color: white;
     padding: 10px 15px;
@@ -248,7 +248,7 @@ nav h1 {
 }
 
 .send-btn:hover {
-    background-color: #512da8;
+    background-color: #0056b3;
 }
 
 /* --------------- Dark Mode Styles --------------- */
@@ -409,7 +409,7 @@ body.dark-mode .dark-icon {
     .menu-header h2 {
         font-size: 18px;
         margin: 0;
-        color: #fff; /* White "User Name" on mobile */
+        color: #333;
         transition: color 0.3s ease;
     }
 
@@ -471,6 +471,8 @@ body.dark-mode .dark-icon {
     .sidebar {
         transform: translateX(0);
         position: relative;
+        display: flex; /* Use flexbox */
+        flex-direction: column; /* Stack elements vertically */
     }
 
     .menu-content {
@@ -479,21 +481,21 @@ body.dark-mode .dark-icon {
         display: flex;
         flex-direction: column;
         width: 100%;
-        height: auto;
+        height: 100%; /* Fill the sidebar's height */
         border-right: none;
         z-index: auto;
         background-color: #ffffff;
     }
 
     #menu-toggle {
-        display: none; /* Hide hamburger icon on desktop */
+        display: none;
     }
 
-    .menu-header h2 {
-        color: #333; /* Black "User Name" on desktop */
+    .menu-header {
+        color: #333;
     }
 
     .auth-btn {
-        background-color: #673ab7; /* Purple auth buttons on desktop */
+        background-color: #673ab7;
     }
 }
