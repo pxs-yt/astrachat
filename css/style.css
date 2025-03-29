@@ -82,19 +82,19 @@ nav h1 {
 
 .menu-content {
     position: absolute;
-    top: 60px; /* Below the navbar */
+    top: 60px;
     left: 0;
     width: 250px;
-    height: calc(100% - 60px); /* Full height minus navbar */
+    height: calc(100% - 60px);
     background-color: #fff;
-    transform: translateX(-100%); /* Initially hidden */
+    transform: translateX(-100%);
     transition: transform 0.3s ease;
     display: flex;
     flex-direction: column;
 }
 
 .menu-content.open {
-    transform: translateX(0); /* Show the menu */
+    transform: translateX(0);
 }
 
 /* Menu Header Styles */
@@ -125,7 +125,7 @@ nav h1 {
     list-style: none;
     padding: 0;
     margin: 0;
-    flex-grow: 1; /* Take remaining space */
+    flex-grow: 1;
 }
 
 .menu-items li {
@@ -168,7 +168,7 @@ nav h1 {
 .auth-btn {
     font-family: 'Google Sans', sans-serif;
     display: block;
-    background-color: #007bff;
+    background-color: #673ab7; /* Purple color */
     border: none;
     color: white;
     padding: 10px 15px;
@@ -185,7 +185,7 @@ nav h1 {
 }
 
 .auth-btn:hover {
-    background-color: #0056b3;
+    background-color: #512da8;
 }
 
 /* --------------- Chat Area Styles --------------- */
@@ -274,7 +274,7 @@ body.dark-mode .sidebar {
 }
 
 body.dark-mode .menu-content {
-    background-color: #333; /* Dark gray background */
+    background-color: #333;
     border-color: #555;
 }
 
@@ -406,6 +406,13 @@ body.dark-mode .dark-icon {
         height: 40px;
     }
 
+    .menu-header h2 {
+        font-size: 18px;
+        margin: 0;
+        color: #fff; /* White "User Name" on mobile */
+        transition: color 0.3s ease;
+    }
+
     .menu-items {
         flex-direction: column;
         overflow-x: hidden;
@@ -479,6 +486,14 @@ body.dark-mode .dark-icon {
     }
 
     #menu-toggle {
-        display: block;
+        display: none; /* Hide hamburger icon on desktop */
+    }
+
+    .menu-header h2 {
+        color: #333; /* Black "User Name" on desktop */
+    }
+
+    .auth-btn {
+        background-color: #673ab7; /* Purple auth buttons on desktop */
     }
 }
