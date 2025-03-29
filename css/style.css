@@ -89,15 +89,15 @@ nav h1 {
     border-right: 1px solid #e0e0e0;
     width: 250px;
     height: calc(100% - 60px);
-    transform: translateX(-100%);
+    transform: translateX(-100%); /* Hidden by default */
     transition: transform 0.3s ease;
     z-index: 10;
-    display: flex; /* Ensure it uses flexbox */
-    flex-direction: column; /* Stack elements vertically */
+    display: flex;
+    flex-direction: column;
 }
 
 .menu-content.open {
-    transform: translateX(0);
+    transform: translateX(0); /* Shown when the 'open' class is present */
 }
 
 /* User Profile Styles */
@@ -277,8 +277,8 @@ body.dark-mode .sidebar {
 }
 
 body.dark-mode .menu-content {
-    background-color: #333; /* Dark gray background in dark mode */
-    border-color: #333;
+    background-color: #333;
+    border-color: #555;
 }
 
 body.dark-mode .user-profile {
@@ -294,7 +294,7 @@ body.dark-mode .menu-items .menu-btn {
 }
 
 body.dark-mode .menu-items .menu-btn:hover {
-    background-color: #444;
+        background-color: #444;
 }
 
 body.dark-mode .auth-buttons .auth-btn {
@@ -387,7 +387,7 @@ body.dark-mode .dark-icon {
         width: 80%;
         max-width: 300px;
         height: calc(100% - 60px);
-        transform: translateX(-100%);
+        transform: translateX(-100%); /* Hidden by default */
         transition: transform 0.3s ease;
         z-index: 20;
         display: flex;
@@ -395,7 +395,7 @@ body.dark-mode .dark-icon {
     }
 
     .menu-content.open {
-        transform: translateX(0);
+        transform: translateX(0); /* Shown when the 'open' class is present */
     }
 
     .user-profile {
@@ -473,7 +473,7 @@ body.dark-mode .dark-icon {
 
     .menu-content {
         position: static;
-        transform: translateX(0);
+        transform: translateX(0); /* Shown by default on PC */
         display: flex;
         flex-direction: column;
         width: 100%;

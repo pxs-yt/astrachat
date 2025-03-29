@@ -18,7 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Function to toggle the menu
-    function toggleMenu() {
+    function toggleMenu(event) {
+        event.preventDefault(); // Prevent potential issues with touch
         menuContent.classList.toggle('open');
     }
 
