@@ -50,7 +50,7 @@ nav h1 {
     cursor: pointer;
     font-size: 20px;
     color: #673ab7;
-    display: block; /* Always show the hamburger icon */
+    display: block;
 }
 
 #theme-toggle {
@@ -85,17 +85,19 @@ nav h1 {
     position: absolute;
     top: 60px;
     left: 0;
-    background-color: #ffffff; /* Default white background */
+    background-color: #ffffff;
     border-right: 1px solid #e0e0e0;
     width: 250px;
     height: calc(100% - 60px);
-    transform: translateX(-100%); /* Hidden by default */
+    transform: translateX(-100%);
     transition: transform 0.3s ease;
     z-index: 10;
+    display: flex; /* Ensure it uses flexbox */
+    flex-direction: column; /* Stack elements vertically */
 }
 
 .menu-content.open {
-    transform: translateX(0); /* Show when open */
+    transform: translateX(0);
 }
 
 /* User Profile Styles */
@@ -126,7 +128,7 @@ nav h1 {
     list-style: none;
     padding: 0;
     margin: 0;
-    flex-grow: 1; /* Push auth buttons to the bottom */
+    flex-grow: 1;
 }
 
 .menu-items li {
@@ -275,7 +277,7 @@ body.dark-mode .sidebar {
 }
 
 body.dark-mode .menu-content {
-    background-color: #121212; /* Dark gray background in dark mode */
+    background-color: #333; /* Dark gray background in dark mode */
     border-color: #555;
 }
 
@@ -380,18 +382,20 @@ body.dark-mode .dark-icon {
         position: fixed;
         top: 60px;
         left: 0;
-        background-color: #ffffff; /* Default white background */
+        background-color: #ffffff;
         border-right: 1px solid #e0e0e0;
         width: 80%;
         max-width: 300px;
         height: calc(100% - 60px);
-        transform: translateX(-100%); /* Hidden by default */
+        transform: translateX(-100%);
         transition: transform 0.3s ease;
         z-index: 20;
+        display: flex;
+        flex-direction: column;
     }
 
     .menu-content.open {
-        transform: translateX(0); /* Show when open */
+        transform: translateX(0);
     }
 
     .user-profile {
@@ -412,7 +416,7 @@ body.dark-mode .dark-icon {
         overflow-x: hidden;
         white-space: normal;
         height: auto;
-        flex-grow: 1; /* Push auth buttons to the bottom */
+        flex-grow: 1;
     }
 
     .menu-btn {
@@ -471,14 +475,15 @@ body.dark-mode .dark-icon {
         position: static;
         transform: translateX(0);
         display: flex;
+        flex-direction: column;
         width: 100%;
         height: auto;
         border-right: none;
         z-index: auto;
-        background-color: #ffffff; /* Default white background */
+        background-color: #ffffff;
     }
 
     #menu-toggle {
-        display: block; /* Always show the hamburger icon */
+        display: block;
     }
 }

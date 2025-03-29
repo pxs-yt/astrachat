@@ -19,7 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Function to toggle the menu
     function toggleMenu() {
-        //  menuContent.classList.toggle('open');
         menuContent.classList.toggle('open');
     }
 
