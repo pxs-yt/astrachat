@@ -71,6 +71,7 @@ body {
     display: flex; /* Added */
     align-items: center; /* Added */
     justify-content: center; /* Added */
+    margin-top: 20px; /* Spacing between last input and button */
 }
 
 .auth-btn i {
@@ -171,6 +172,7 @@ body.dark-mode .auth-links a {
     .auth-btn {
         padding: 10px 12px;
         font-size: 15px;
+        margin-top: 15px; /* Spacing between last input and button */
     }
 
     .auth-links {
@@ -198,6 +200,7 @@ body.dark-mode .auth-links a {
 
     .auth-btn {
         font-size: 14px;
+        margin-top: 15px; /* Spacing between last input and button */
     }
 
     .auth-links a {
