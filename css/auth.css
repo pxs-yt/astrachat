@@ -68,6 +68,13 @@ body {
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s ease;
+    display: flex; /* Added */
+    align-items: center; /* Added */
+    justify-content: center; /* Added */
+}
+
+.auth-btn i {
+    margin-right: 8px; /* Added */
 }
 
 .auth-btn:hover {
