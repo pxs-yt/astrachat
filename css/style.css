@@ -49,7 +49,7 @@ nav h1 {
     border: none;
     cursor: pointer;
     font-size: 20px;
-    color: #673ab7; /* Purple color for hamburger icon */
+    color: #673ab7;
 }
 
 #theme-toggle {
@@ -60,11 +60,11 @@ nav h1 {
 }
 
 .light-icon {
-    color: #ffc107; /* Sun icon color */
+    color: #ffc107;
 }
 
 .dark-icon {
-    color: #673ab7; /* Purple color for moon icon */
+    color: #673ab7;
     display: none;
 }
 
@@ -77,12 +77,26 @@ nav h1 {
     border-right: 1px solid #e0e0e0;
     transition: border-color 0.3s ease;
     overflow-y: auto;
+    position: relative; /* Needed for positioning menu content */
 }
 
 .menu-content {
+    position: absolute;
+    top: 60px; /* Below the nav bar */
+    left: 0;
+    background-color: #ffffff;
+    border-right: 1px solid #e0e0e0;
+    width: 250px;
+    height: calc(100% - 60px); /* Full height minus nav height */
     display: flex;
     flex-direction: column;
-    height: 100%;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 10;
+}
+
+.menu-content.open {
+    transform: translateX(0);
 }
 
 /* User Profile Styles */
@@ -340,6 +354,7 @@ body.dark-mode .dark-icon {
         border-bottom: 1px solid #e0e0e0;
         overflow-x: auto;
         white-space: nowrap;
+        position: relative; /* Needed for positioning menu content */
     }
 
     .chat-area {
@@ -360,6 +375,18 @@ body.dark-mode .dark-icon {
         overflow-x: auto;
         white-space: nowrap;
         height: auto;
+        position: absolute;
+        top: 60px; /* Below the nav bar */
+        left: 0;
+        width: 100%;
+        height: auto;
+        transform: translateX(0); /* Always show on mobile */
+        z-index: 10;
+        display: none; /* Hide by default on mobile */
+    }
+
+    .menu-content.open {
+        display: flex; /* Show when open */
     }
 
     .user-profile {
