@@ -278,7 +278,7 @@ body.dark-mode .sidebar {
 
 body.dark-mode .menu-content {
     background-color: #333; /* Dark gray background in dark mode */
-    border-color: #555;
+    border-color: #333;
 }
 
 body.dark-mode .user-profile {
