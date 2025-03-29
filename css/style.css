@@ -1,10 +1,10 @@
 /* --------------- General Styles --------------- */
 body {
-    font-family: 'Google Sans', sans-serif; /* Apply Google Sans */
+    font-family: 'Google Sans', sans-serif;
     margin: 0;
     padding: 0;
-    height: 100vh; /* Full height */
-    width: 100vw; /* Full width */
+    height: 100vh;
+    width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,13 +13,13 @@ body {
 }
 
 .container {
-    height: 100%; /* Full height */
-    width: 100%; /* Full width */
+    height: 100%;
+    width: 100%;
     background-color: #ffffff;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Softer shadow */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     display: grid;
-    grid-template-rows: auto 1fr auto; /* Header, Main, Input */
-    grid-template-columns: 280px 1fr; /* Sidebar, Chat Window */
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: auto 1fr; /* Sidebar takes auto width */
     gap: 0;
     padding: 0;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
@@ -56,16 +56,54 @@ header h1 {
     grid-row: 2;
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    height: 100%;
     border-right: 1px solid #e0e0e0;
     transition: border-color 0.3s ease;
 }
 
+/* --------------- Hamburger Menu Styles --------------- */
+.hamburger-menu {
+    position: relative;
+    /* Needed for absolute positioning of menu content */
+}
+
+#menu-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 10px;
+}
+
+.menu-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #ffffff;
+    border-right: 1px solid #e0e0e0;
+    width: 250px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(-100%);
+    /* Hide the menu initially */
+    transition: transform 0.3s ease;
+    z-index: 10;
+    /* Ensure it's above other elements */
+}
+
+.menu-content.open {
+    transform: translateX(0);
+    /* Show the menu */
+}
+
+/* User Profile Styles */
 .user-profile {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-bottom: 20px;
+    padding: 20px;
+    border-bottom: 1px solid #e0e0e0;
 }
 
 .user-profile img {
@@ -82,32 +120,63 @@ header h1 {
     transition: color 0.3s ease;
 }
 
-.chats-list {
+/* Menu Items Styles */
+.menu-items {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    overflow-y: auto; /* Scroll if needed */
 }
 
-.new-chat-btn {
-    background-color: #f0f0f0;
+.menu-btn {
+    background: none;
     border: none;
-    padding: 10px 15px;
-    border-radius: 10px;
+    padding: 10px 20px;
     cursor: pointer;
+    font-size: 16px;
     color: #333;
     display: flex;
     align-items: center;
-    gap: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    gap: 10px;
+    transition: background-color 0.3s ease;
 }
 
-.new-chat-btn i {
+.menu-btn i {
+    margin-right: 10px;
+}
+
+.menu-btn:hover {
+    background-color: #f0f0f0;
+}
+
+/* Auth Buttons Styles */
+.auth-buttons {
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
+    /* Push to the bottom */
+    padding: 20px;
+    gap: 10px;
+}
+
+.auth-btn {
+    display: block;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.auth-btn i {
     margin-right: 5px;
 }
 
-.new-chat-btn:hover {
-    background-color: #e0e0e0;
+.auth-btn:hover {
+    background-color: #0056b3;
 }
 
 /* --------------- Chat Window Styles --------------- */
@@ -194,30 +263,28 @@ body.dark-mode .user-profile h2 {
     color: #fff;
 }
 
-body.dark-mode .new-chat-btn {
+body.dark-mode .menu-content {
     background-color: #333;
-    color: #fff;
-}
-
-body.dark-mode .new-chat-btn:hover {
-    background-color: #444;
-}
-
-body.dark-mode .chat-input input {
-    background-color: #333;
-    color: #fff;
     border-color: #555;
 }
 
-body.dark-mode .chat-input input:focus {
-    border-color: #673ab7;
+body.dark-mode .user-profile {
+    border-bottom-color: #555;
 }
 
-body.dark-mode .send-btn {
+body.dark-mode .menu-btn {
+    color: #fff;
+}
+
+body.dark-mode .menu-btn:hover {
+    background-color: #444;
+}
+
+body.dark-mode .auth-btn {
     background-color: #673ab7;
 }
 
-body.dark-mode .send-btn:hover {
+body.dark-mode .auth-btn:hover {
     background-color: #512da8;
 }
 
@@ -248,17 +315,31 @@ body.dark-mode .dark-icon {
 @media (max-width: 768px) {
     .container {
         grid-template-columns: 1fr;
-        grid-template-rows: auto 200px 1fr auto; /* Adjusted rows */
+        grid-template-rows: auto 50px 1fr auto; /* Adjusted rows */
     }
 
     .sidebar {
         grid-column: 1;
         grid-row: 2;
-        height: 100%; /* Adjust height */
+        height: auto;
         border-right: none;
         border-bottom: 1px solid #e0e0e0;
-        overflow-x: auto; /* Scroll horizontally */
-        white-space: nowrap; /* Prevent wrapping */
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .hamburger-menu {
+        display: flex;
+    }
+
+    #menu-toggle {
+        display: block;
+    }
+
+    .menu-content {
+        top: 50px;
+        /* Below the toggle button */
+        height: calc(100% - 50px);
     }
 
     .chat-window {
@@ -272,9 +353,9 @@ body.dark-mode .dark-icon {
     }
 
     .user-profile {
-        flex-direction: row; /* Keep user profile horizontal */
-        justify-content: flex-start; /* Align left */
-        align-items: center; /* Center vertically */
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
         margin-bottom: 10px;
     }
 
@@ -284,19 +365,19 @@ body.dark-mode .dark-icon {
     }
 
     .chats-list {
-        flex-direction: row; /* Horizontal chat list */
-        overflow-x: auto; /* Horizontal scroll */
-        white-space: nowrap; /* Prevent wrapping */
-        height: 100%; /* Adjust height */
+        flex-direction: row;
+        overflow-x: auto;
+        white-space: nowrap;
+        height: 100%;
     }
 
     .chats-list > * {
-        flex-shrink: 0; /* Prevent shrinking */
-        width: auto; /* Auto width */
+        flex-shrink: 0;
+        width: auto;
     }
 
     .new-chat-btn {
-        margin-bottom: 0; /* Remove extra spacing */
+        margin-bottom: 0;
     }
 }
 

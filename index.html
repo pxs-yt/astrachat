@@ -30,16 +30,46 @@
 
         <main>
             <aside class="sidebar">
-                <div class="user-profile">
-                    <img src="user-avatar.png" alt="User Avatar">
-                    <h2>User Name</h2>
+                <div class="hamburger-menu">
+                    <button id="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="menu-content">
+                        <div class="user-profile">
+                            <img src="user-avatar.png" alt="User Avatar">
+                            <h2>User Name</h2>
+                        </div>
+
+                        <div class="menu-items">
+                            <button class="menu-btn">
+                                <i class="fas fa-user-plus"></i>
+                                Add Friends
+                            </button>
+                            <button class="menu-btn">
+                                <i class="fas fa-comments"></i>
+                                Choose Chat
+                            </button>
+                            <button class="menu-btn">
+                                <i class="fas fa-cog"></i>
+                                Profile & Settings
+                            </button>
+                        </div>
+
+                        <div class="auth-buttons">
+                            <a href="login.html" class="auth-btn">
+                                <i class="fas fa-sign-in-alt"></i>
+                                Log In
+                            </a>
+                            <a href="signup.html" class="auth-btn">
+                                <i class="fas fa-user-plus"></i>
+                                Sign Up
+                            </a>
+                        </div>
+                    </div>
                 </div>
+
                 <div class="chats-list">
                     </div>
-                <button class="new-chat-btn">
-                    <i class="fas fa-plus"></i>
-                    New Chat
-                </button>
             </aside>
 
             <section class="chat-window">
