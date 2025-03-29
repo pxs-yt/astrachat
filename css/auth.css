@@ -131,3 +131,69 @@ body.dark-mode .auth-btn:hover {
 body.dark-mode .auth-links a {
     color: #673ab7;
 }
+
+/* --------------- Responsive Design --------------- */
+@media (max-width: 768px) {
+    .auth-container {
+        width: 90%;
+        max-width: 400px;
+        padding: 20px;
+    }
+
+    .auth-form {
+        gap: 15px;
+    }
+
+    .auth-form h1 {
+        font-size: 22px;
+    }
+
+    .input-group {
+        gap: 3px;
+    }
+
+    .input-group label {
+        font-size: 13px;
+    }
+
+    .input-group input {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .auth-btn {
+        padding: 10px 12px;
+        font-size: 15px;
+    }
+
+    .auth-links {
+        gap: 8px;
+        margin-top: 15px;
+    }
+
+    .auth-links a {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .auth-form h1 {
+        font-size: 20px;
+    }
+
+    .input-group label {
+        font-size: 12px;
+    }
+
+    .input-group input {
+        font-size: 13px;
+    }
+
+    .auth-btn {
+        font-size: 14px;
+    }
+
+    .auth-links a {
+        font-size: 13px;
+    }
+}
