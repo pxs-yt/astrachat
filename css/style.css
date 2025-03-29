@@ -8,7 +8,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f0f0f0;
+    background-color: #121212; /* Dark gray background */
     transition: background-color 0.3s ease;
 }
 
@@ -51,7 +51,6 @@ nav h1 {
     font-size: 20px;
     color: #673ab7;
     display: block;
-    /* touch-action: manipulation; */ /* Add this */
 }
 
 #theme-toggle {
@@ -59,7 +58,6 @@ nav h1 {
     border: none;
     cursor: pointer;
     font-size: 20px;
-    /* touch-action: manipulation; */ /* Add this */
 }
 
 .light-icon {
@@ -86,20 +84,20 @@ nav h1 {
 .menu-content {
     position: absolute;
     top: 60px;
-    left: 0;
-    background-color: #f0f0f0;
+    left: -300px; /* Hidden off-screen by default */
+    background-color: #121212; /* Dark gray background */
     border-right: 1px solid #e0e0e0;
     width: 250px;
     height: calc(100% - 60px);
-    display: flex;
+    display: none; /* Hidden by default */
     flex-direction: column;
-    transform: translateX(-100%);
-    transition: transform 0.3s ease;
+    transition: left 0.3s ease; /* Transition for smooth animation */
     z-index: 10;
 }
 
 .menu-content.open {
-    transform: translateX(0);
+    left: 0; /* Show the menu */
+    display: flex; /* Ensure it displays */
 }
 
 /* User Profile Styles */
@@ -121,7 +119,7 @@ nav h1 {
 .user-profile h2 {
     font-size: 18px;
     margin: 0;
-    color: #333;
+    color: #fff; /* White text for better visibility on dark bg */
     transition: color 0.3s ease;
 }
 
@@ -130,6 +128,7 @@ nav h1 {
     list-style: none;
     padding: 0;
     margin: 0;
+    flex-grow: 1; /* Take up remaining vertical space */
 }
 
 .menu-items li {
@@ -144,14 +143,13 @@ nav h1 {
     padding: 10px 20px;
     cursor: pointer;
     font-size: 16px;
-    color: #333;
+    color: #fff; /* White text for better visibility on dark bg */
     display: flex;
     align-items: center;
     gap: 10px;
     width: 100%;
     text-align: left;
     transition: background-color 0.3s ease;
-    /* touch-action: manipulation; */ /* Add this */
 }
 
 .menu-btn i {
@@ -159,14 +157,13 @@ nav h1 {
 }
 
 .menu-btn:hover {
-    background-color: #e0e0e0;
+    background-color: #333; /* Slightly lighter dark gray on hover */
 }
 
 /* Auth Buttons Styles */
 .auth-buttons {
     display: flex;
     flex-direction: column;
-    margin-top: auto;
     padding: 20px;
     gap: 10px;
 }
@@ -184,7 +181,6 @@ nav h1 {
     text-align: center;
     text-decoration: none;
     transition: background-color 0.3s ease;
-    /* touch-action: manipulation; */ /* Add this */
 }
 
 .auth-btn i {
@@ -230,7 +226,6 @@ nav h1 {
     border: 1px solid #e0e0e0;
     border-radius: 10px;
     transition: border-color 0.3s ease;
-    /* touch-action: manipulation; */ /* Add this */
 }
 
 .chat-input input:focus {
@@ -249,7 +244,6 @@ nav h1 {
     align-items: center;
     gap: 5px;
     transition: background-color 0.3s ease;
-    /* touch-action: manipulation; */ /* Add this */
 }
 
 .send-btn i {
@@ -387,22 +381,21 @@ body.dark-mode .dark-icon {
     .menu-content {
         position: fixed;
         top: 60px;
-        left: 0;
-        background-color: #f0f0f0;
+        left: -300px; /* Hidden off-screen by default */
+        background-color: #121212; /* Dark gray background */
         border-right: 1px solid #e0e0e0;
         width: 80%;
         max-width: 300px;
         height: calc(100% - 60px);
-        display: none;
+        display: none; /* Hidden by default */
         flex-direction: column;
-        transform: translateX(-100%);
-        transition: transform 0.3s ease;
+        transition: left 0.3s ease; /* Transition for smooth animation */
         z-index: 20;
-        /* touch-action: manipulation; */ /* Add this */
     }
 
     .menu-content.open {
-        transform: translateX(0);
+        left: 0; /* Show the menu */
+        display: flex; /* Ensure it displays */
     }
 
     .user-profile {
@@ -423,6 +416,7 @@ body.dark-mode .dark-icon {
         overflow-x: hidden;
         white-space: normal;
         height: auto;
+        flex-grow: 1; /* Take up remaining vertical space */
     }
 
     .menu-btn {
@@ -431,19 +425,16 @@ body.dark-mode .dark-icon {
         padding: 10px 20px;
         text-align: left;
         width: 100%;
-        /* touch-action: manipulation; */ /* Add this */
     }
 
     .auth-buttons {
         flex-direction: column;
-        margin-top: auto;
         padding: 20px;
     }
 
     .auth-btn {
         font-family: 'Google Sans', sans-serif;
         margin: 5px 0;
-        /* touch-action: manipulation; */ /* Add this */
     }
 
     .chats-list {
@@ -488,7 +479,7 @@ body.dark-mode .dark-icon {
         height: auto;
         border-right: none;
         z-index: auto;
-        background-color: #f0f0f0;
+        background-color: #121212; /* Dark gray background */
     }
 
     #menu-toggle {

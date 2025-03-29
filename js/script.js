@@ -19,7 +19,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Function to toggle the menu
     function toggleMenu() {
-        menuContent.classList.toggle('open');
+        //  menuContent.classList.toggle('open');
+        if (menuContent.style.display === "none" || menuContent.style.display === "") {
+            menuContent.style.display = "flex";
+        } else {
+            menuContent.style.display = "none";
+        }
     }
 
     // Use both 'click' and 'touchstart' for better touch support
