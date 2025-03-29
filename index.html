@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AstraChat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>AstraChat</h1>
+            <button id="theme-toggle">
+                <span class="light-icon">☀️</span>
+                <span class="dark-icon">🌙</span>
+            </button>
+        </header>
+
+        <main>
+            <div class="sidebar">
+                <div class="user-profile">
+                    <img src="user-avatar.png" alt="User Avatar">
+                    <h2>User Name</h2>
+                </div>
+                <div class="chats-list">
+                    </div>
+                <button class="new-chat-btn">+ New Chat</button>
+            </div>
+
+            <div class="chat-window">
+                <div class="messages">
+                    </div>
+                <div class="chat-input">
+                    <input type="text" placeholder="Type a message...">
+                    <button class="send-btn">Send</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
