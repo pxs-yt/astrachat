@@ -77,31 +77,28 @@ nav h1 {
     width: 250px;
     border-right: 1px solid #e0e0e0;
     transition: border-color 0.3s ease;
-    overflow-y: auto;
     position: relative;
 }
 
 .menu-content {
     position: absolute;
-    top: 60px;
+    top: 60px; /* Below the navbar */
     left: 0;
-    background-color: #ffffff;
-    border-right: 1px solid #e0e0e0;
     width: 250px;
-    height: calc(100% - 60px);
-    transform: translateX(-100%); /* Hidden by default */
+    height: calc(100% - 60px); /* Full height minus navbar */
+    background-color: #fff;
+    transform: translateX(-100%); /* Initially hidden */
     transition: transform 0.3s ease;
-    z-index: 10;
     display: flex;
     flex-direction: column;
 }
 
 .menu-content.open {
-    transform: translateX(0); /* Shown when the 'open' class is present */
+    transform: translateX(0); /* Show the menu */
 }
 
-/* User Profile Styles */
-.user-profile {
+/* Menu Header Styles */
+.menu-header {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -109,14 +106,14 @@ nav h1 {
     border-bottom: 1px solid #e0e0e0;
 }
 
-.user-profile img {
+.menu-header img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
     object-fit: cover;
 }
 
-.user-profile h2 {
+.menu-header h2 {
     font-size: 18px;
     margin: 0;
     color: #333;
@@ -128,7 +125,7 @@ nav h1 {
     list-style: none;
     padding: 0;
     margin: 0;
-    flex-grow: 1;
+    flex-grow: 1; /* Take remaining space */
 }
 
 .menu-items li {
@@ -160,8 +157,8 @@ nav h1 {
     background-color: #e0e0e0;
 }
 
-/* Auth Buttons Styles */
-.auth-buttons {
+/* Menu Footer Styles */
+.menu-footer {
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -277,15 +274,15 @@ body.dark-mode .sidebar {
 }
 
 body.dark-mode .menu-content {
-    background-color: #333;
+    background-color: #333; /* Dark gray background */
     border-color: #555;
 }
 
-body.dark-mode .user-profile {
+body.dark-mode .menu-header {
     border-bottom-color: #555;
 }
 
-body.dark-mode .user-profile h2 {
+body.dark-mode .menu-header h2 {
     color: #fff;
 }
 
@@ -294,7 +291,7 @@ body.dark-mode .menu-items .menu-btn {
 }
 
 body.dark-mode .menu-items .menu-btn:hover {
-        background-color: #444;
+    background-color: #444;
 }
 
 body.dark-mode .auth-buttons .auth-btn {
@@ -382,12 +379,10 @@ body.dark-mode .dark-icon {
         position: fixed;
         top: 60px;
         left: 0;
-        background-color: #ffffff;
-        border-right: 1px solid #e0e0e0;
         width: 80%;
         max-width: 300px;
         height: calc(100% - 60px);
-        transform: translateX(-100%); /* Hidden by default */
+        transform: translateX(-100%);
         transition: transform 0.3s ease;
         z-index: 20;
         display: flex;
@@ -395,10 +390,10 @@ body.dark-mode .dark-icon {
     }
 
     .menu-content.open {
-        transform: translateX(0); /* Shown when the 'open' class is present */
+        transform: translateX(0);
     }
 
-    .user-profile {
+    .menu-header {
         flex-direction: row;
         justify-content: flex-start;
         align-items: center;
@@ -406,7 +401,7 @@ body.dark-mode .dark-icon {
         padding: 0 10px;
     }
 
-    .user-profile img {
+    .menu-header img {
         width: 40px;
         height: 40px;
     }
@@ -427,7 +422,7 @@ body.dark-mode .dark-icon {
         width: 100%;
     }
 
-    .auth-buttons {
+    .menu-footer {
         flex-direction: column;
         padding: 20px;
     }
@@ -473,7 +468,7 @@ body.dark-mode .dark-icon {
 
     .menu-content {
         position: static;
-        transform: translateX(0); /* Shown by default on PC */
+        transform: translateX(0);
         display: flex;
         flex-direction: column;
         width: 100%;
