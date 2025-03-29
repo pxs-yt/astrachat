@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Function to toggle the menu
     function toggleMenu() {
-        menuContent.classList.toggle('open');
+        menuContent.classList.toggle('open'); // Toggle the 'open' class
     }
 
     // Event listener for the menu toggle button

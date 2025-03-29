@@ -18,8 +18,8 @@ body {
     background-color: #ffffff;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     display: grid;
-    grid-template-rows: 60px 1fr; /* Navigation bar + main area */
-    grid-template-columns: auto 1fr; /* Sidebar + Chat area */
+    grid-template-rows: 60px 1fr;
+    grid-template-columns: auto 1fr;
     gap: 0;
     padding: 0;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
@@ -49,6 +49,7 @@ nav h1 {
     border: none;
     cursor: pointer;
     font-size: 20px;
+    color: #673ab7; /* Purple color for hamburger icon */
 }
 
 #theme-toggle {
@@ -58,21 +59,30 @@ nav h1 {
     font-size: 20px;
 }
 
+.light-icon {
+    color: #ffc107; /* Sun icon color */
+}
+
+.dark-icon {
+    color: #673ab7; /* Purple color for moon icon */
+    display: none;
+}
+
 /* --------------- Sidebar Styles --------------- */
 .sidebar {
     grid-column: 1;
     grid-row: 2;
     height: 100%;
-    width: 250px; /* Fixed width for the sidebar */
+    width: 250px;
     border-right: 1px solid #e0e0e0;
     transition: border-color 0.3s ease;
-    overflow-y: auto; /* Allow scrolling in the sidebar */
+    overflow-y: auto;
 }
 
 .menu-content {
     display: flex;
     flex-direction: column;
-    height: 100%; /* Full height of the sidebar */
+    height: 100%;
 }
 
 /* User Profile Styles */
@@ -130,7 +140,6 @@ nav h1 {
     display: flex;
     flex-direction: column;
     margin-top: auto;
-    /* Push to the bottom */
     padding: 20px;
     gap: 10px;
 }
@@ -169,7 +178,7 @@ nav h1 {
 .chat-window {
     display: flex;
     flex-direction: column;
-    flex-grow: 1; /* Take remaining vertical space */
+    flex-grow: 1;
 }
 
 .messages {
@@ -290,7 +299,7 @@ body.dark-mode .send-btn:hover {
 }
 
 body.dark-mode .messages {
-    color: #fff; /* Message text color in dark mode */
+    color: #fff;
 }
 
 /* Hide light/dark icons */
@@ -314,7 +323,7 @@ body.dark-mode .dark-icon {
 @media (max-width: 768px) {
     .container {
         grid-template-columns: 1fr;
-        grid-template-rows: 60px auto 1fr auto; /* Adjusted rows */
+        grid-template-rows: 60px auto 1fr auto;
     }
 
     nav {
@@ -326,7 +335,7 @@ body.dark-mode .dark-icon {
         grid-column: 1;
         grid-row: 2;
         height: auto;
-        width: 100%; /* Take full width */
+        width: 100%;
         border-right: none;
         border-bottom: 1px solid #e0e0e0;
         overflow-x: auto;
@@ -344,21 +353,21 @@ body.dark-mode .dark-icon {
     }
 
     .menu-content {
-        flex-direction: row; /* Horizontal layout on smaller screens */
-        align-items: center; /* Center items vertically */
-        justify-content: flex-start; /* Align items to the start */
-        padding: 10px 0; /* Adjust padding */
-        overflow-x: auto; /* Enable horizontal scrolling */
-        white-space: nowrap; /* Prevent wrapping */
-        height: auto; /* Adjust height */
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 10px 0;
+        overflow-x: auto;
+        white-space: nowrap;
+        height: auto;
     }
 
     .user-profile {
         flex-direction: row;
         justify-content: flex-start;
         align-items: center;
-        margin-bottom: 0; /* Remove extra spacing */
-        padding: 0 10px; /* Adjust padding */
+        margin-bottom: 0;
+        padding: 0 10px;
     }
 
     .user-profile img {
@@ -367,24 +376,24 @@ body.dark-mode .dark-icon {
     }
 
     .menu-items {
-        flex-direction: row; /* Horizontal menu items */
-        overflow-x: auto; /* Enable horizontal scrolling */
-        white-space: nowrap; /* Prevent wrapping */
-        height: auto; /* Adjust height */
+        flex-direction: row;
+        overflow-x: auto;
+        white-space: nowrap;
+        height: auto;
     }
 
     .menu-btn {
-        margin: 0 10px; /* Add spacing between buttons */
+        margin: 0 10px;
     }
 
     .auth-buttons {
-        flex-direction: row; /* Horizontal auth buttons */
-        margin-top: 0; /* Remove extra spacing */
-        padding: 10px 0; /* Adjust padding */
+        flex-direction: row;
+        margin-top: 0;
+        padding: 10px 0;
     }
 
     .auth-btn {
-        margin: 0 10px; /* Add spacing between buttons */
+        margin: 0 10px;
     }
 
     .chats-list {
