@@ -227,11 +227,11 @@ nav h1 {
 
 .chat-input input:focus {
     outline: none;
-    border-color: #007bff;
+    border-color: #673ab7;
 }
 
 .send-btn {
-    background-color: #007bff;
+    background-color: #673ab7;
     border: none;
     color: white;
     padding: 10px 15px;
@@ -248,7 +248,7 @@ nav h1 {
 }
 
 .send-btn:hover {
-    background-color: #0056b3;
+    background-color: #512da8;
 }
 
 /* --------------- Dark Mode Styles --------------- */
