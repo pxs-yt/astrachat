@@ -50,6 +50,8 @@ nav h1 {
     cursor: pointer;
     font-size: 20px;
     color: #673ab7;
+    display: block;
+    /* touch-action: manipulation; */ /* Add this */
 }
 
 #theme-toggle {
@@ -57,6 +59,7 @@ nav h1 {
     border: none;
     cursor: pointer;
     font-size: 20px;
+    /* touch-action: manipulation; */ /* Add this */
 }
 
 .light-icon {
@@ -84,21 +87,19 @@ nav h1 {
     position: absolute;
     top: 60px;
     left: 0;
-    background-color: #ffffff;
+    background-color: #f0f0f0;
     border-right: 1px solid #e0e0e0;
     width: 250px;
     height: calc(100% - 60px);
     display: flex;
     flex-direction: column;
-    /* transform: translateX(-100%); */
-    /* transition: transform 0.3s ease; */
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
     z-index: 10;
-    display: none; /* Hidden by default on mobile */
 }
 
 .menu-content.open {
-    /* transform: translateX(0); */
-    display: flex; /* Show when open */
+    transform: translateX(0);
 }
 
 /* User Profile Styles */
@@ -126,11 +127,18 @@ nav h1 {
 
 /* Menu Items Styles */
 .menu-items {
-    display: flex;
-    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-items li {
+    margin: 0;
+    padding: 0;
 }
 
 .menu-btn {
+    font-family: 'Google Sans', sans-serif;
     background: none;
     border: none;
     padding: 10px 20px;
@@ -140,7 +148,10 @@ nav h1 {
     display: flex;
     align-items: center;
     gap: 10px;
+    width: 100%;
+    text-align: left;
     transition: background-color 0.3s ease;
+    /* touch-action: manipulation; */ /* Add this */
 }
 
 .menu-btn i {
@@ -148,7 +159,7 @@ nav h1 {
 }
 
 .menu-btn:hover {
-    background-color: #f0f0f0;
+    background-color: #e0e0e0;
 }
 
 /* Auth Buttons Styles */
@@ -161,6 +172,7 @@ nav h1 {
 }
 
 .auth-btn {
+    font-family: 'Google Sans', sans-serif;
     display: block;
     background-color: #007bff;
     border: none;
@@ -172,6 +184,7 @@ nav h1 {
     text-align: center;
     text-decoration: none;
     transition: background-color 0.3s ease;
+    /* touch-action: manipulation; */ /* Add this */
 }
 
 .auth-btn i {
@@ -217,6 +230,7 @@ nav h1 {
     border: 1px solid #e0e0e0;
     border-radius: 10px;
     transition: border-color 0.3s ease;
+    /* touch-action: manipulation; */ /* Add this */
 }
 
 .chat-input input:focus {
@@ -235,6 +249,7 @@ nav h1 {
     align-items: center;
     gap: 5px;
     transition: background-color 0.3s ease;
+    /* touch-action: manipulation; */ /* Add this */
 }
 
 .send-btn i {
@@ -280,19 +295,19 @@ body.dark-mode .user-profile h2 {
     color: #fff;
 }
 
-body.dark-mode .menu-btn {
+body.dark-mode .menu-items .menu-btn {
     color: #fff;
 }
 
-body.dark-mode .menu-btn:hover {
+body.dark-mode .menu-items .menu-btn:hover {
     background-color: #444;
 }
 
-body.dark-mode .auth-btn {
+body.dark-mode .auth-buttons .auth-btn {
     background-color: #673ab7;
 }
 
-body.dark-mode .auth-btn:hover {
+body.dark-mode .auth-buttons .auth-btn:hover {
     background-color: #512da8;
 }
 
@@ -373,21 +388,21 @@ body.dark-mode .dark-icon {
         position: fixed;
         top: 60px;
         left: 0;
-        background-color: #ffffff;
+        background-color: #f0f0f0;
         border-right: 1px solid #e0e0e0;
         width: 80%;
         max-width: 300px;
         height: calc(100% - 60px);
-        display: none; /* Hidden by default on mobile */
+        display: none;
         flex-direction: column;
-        /* transform: translateX(-100%); */
-        /* transition: transform 0.3s ease; */
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
         z-index: 20;
+        /* touch-action: manipulation; */ /* Add this */
     }
 
     .menu-content.open {
-        /* transform: translateX(0); */
-        display: flex; /* Show when open */
+        transform: translateX(0);
     }
 
     .user-profile {
@@ -411,9 +426,12 @@ body.dark-mode .dark-icon {
     }
 
     .menu-btn {
+        font-family: 'Google Sans', sans-serif;
         margin: 0;
         padding: 10px 20px;
         text-align: left;
+        width: 100%;
+        /* touch-action: manipulation; */ /* Add this */
     }
 
     .auth-buttons {
@@ -423,7 +441,9 @@ body.dark-mode .dark-icon {
     }
 
     .auth-btn {
+        font-family: 'Google Sans', sans-serif;
         margin: 5px 0;
+        /* touch-action: manipulation; */ /* Add this */
     }
 
     .chats-list {
@@ -456,18 +476,19 @@ body.dark-mode .dark-icon {
     }
 
     .sidebar {
-        /* transform: translateX(0); */
+        transform: translateX(0);
         position: relative;
     }
 
     .menu-content {
         position: static;
-        /* transform: translateX(0); */
-        display: flex; /* Always show on PC */
+        transform: translateX(0);
+        display: flex;
         width: 100%;
         height: auto;
         border-right: none;
         z-index: auto;
+        background-color: #f0f0f0;
     }
 
     #menu-toggle {

@@ -22,5 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         menuContent.classList.toggle('open');
     }
 
+    // Use both 'click' and 'touchstart' for better touch support
     menuToggle.addEventListener('click', toggleMenu);
+    menuToggle.addEventListener('touchstart', toggleMenu);
 });
