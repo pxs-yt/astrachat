@@ -8,7 +8,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #121212; /* Dark gray background */
+    background-color: #f0f0f0;
     transition: background-color 0.3s ease;
 }
 
@@ -50,7 +50,7 @@ nav h1 {
     cursor: pointer;
     font-size: 20px;
     color: #673ab7;
-    display: block;
+    display: block; /* Always show the hamburger icon */
 }
 
 #theme-toggle {
@@ -84,20 +84,18 @@ nav h1 {
 .menu-content {
     position: absolute;
     top: 60px;
-    left: -300px; /* Hidden off-screen by default */
-    background-color: #121212; /* Dark gray background */
+    left: 0;
+    background-color: #ffffff; /* Default white background */
     border-right: 1px solid #e0e0e0;
     width: 250px;
     height: calc(100% - 60px);
-    display: none; /* Hidden by default */
-    flex-direction: column;
-    transition: left 0.3s ease; /* Transition for smooth animation */
+    transform: translateX(-100%); /* Hidden by default */
+    transition: transform 0.3s ease;
     z-index: 10;
 }
 
 .menu-content.open {
-    left: 0; /* Show the menu */
-    display: flex; /* Ensure it displays */
+    transform: translateX(0); /* Show when open */
 }
 
 /* User Profile Styles */
@@ -119,7 +117,7 @@ nav h1 {
 .user-profile h2 {
     font-size: 18px;
     margin: 0;
-    color: #fff; /* White text for better visibility on dark bg */
+    color: #333;
     transition: color 0.3s ease;
 }
 
@@ -128,7 +126,7 @@ nav h1 {
     list-style: none;
     padding: 0;
     margin: 0;
-    flex-grow: 1; /* Take up remaining vertical space */
+    flex-grow: 1; /* Push auth buttons to the bottom */
 }
 
 .menu-items li {
@@ -143,7 +141,7 @@ nav h1 {
     padding: 10px 20px;
     cursor: pointer;
     font-size: 16px;
-    color: #fff; /* White text for better visibility on dark bg */
+    color: #333;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -157,7 +155,7 @@ nav h1 {
 }
 
 .menu-btn:hover {
-    background-color: #333; /* Slightly lighter dark gray on hover */
+    background-color: #e0e0e0;
 }
 
 /* Auth Buttons Styles */
@@ -277,7 +275,7 @@ body.dark-mode .sidebar {
 }
 
 body.dark-mode .menu-content {
-    background-color: #333;
+    background-color: #121212; /* Dark gray background in dark mode */
     border-color: #555;
 }
 
@@ -381,21 +379,19 @@ body.dark-mode .dark-icon {
     .menu-content {
         position: fixed;
         top: 60px;
-        left: -300px; /* Hidden off-screen by default */
-        background-color: #121212; /* Dark gray background */
+        left: 0;
+        background-color: #ffffff; /* Default white background */
         border-right: 1px solid #e0e0e0;
         width: 80%;
         max-width: 300px;
         height: calc(100% - 60px);
-        display: none; /* Hidden by default */
-        flex-direction: column;
-        transition: left 0.3s ease; /* Transition for smooth animation */
+        transform: translateX(-100%); /* Hidden by default */
+        transition: transform 0.3s ease;
         z-index: 20;
     }
 
     .menu-content.open {
-        left: 0; /* Show the menu */
-        display: flex; /* Ensure it displays */
+        transform: translateX(0); /* Show when open */
     }
 
     .user-profile {
@@ -416,7 +412,7 @@ body.dark-mode .dark-icon {
         overflow-x: hidden;
         white-space: normal;
         height: auto;
-        flex-grow: 1; /* Take up remaining vertical space */
+        flex-grow: 1; /* Push auth buttons to the bottom */
     }
 
     .menu-btn {
@@ -479,10 +475,10 @@ body.dark-mode .dark-icon {
         height: auto;
         border-right: none;
         z-index: auto;
-        background-color: #121212; /* Dark gray background */
+        background-color: #ffffff; /* Default white background */
     }
 
     #menu-toggle {
-        display: none;
+        display: block; /* Always show the hamburger icon */
     }
 }
