@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width: 1.0, initial-scale=1.0">
+    <meta name="viewport" content="width=1.0, initial-scale=1.0">
     <title>AstraChat</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,7 +35,7 @@
             <div class="menu-content">
                 <div class="menu-header">
                     <img src="user-avatar.png" alt="User Avatar">
-                    <h2>User Name</h2>
+                    <h2 id="user-name-sidebar">User Name</h2>
                 </div>
                 <ul class="menu-items">
                     <li>
@@ -72,11 +72,11 @@
 
         <main class="chat-area">
             <section class="chat-window">
-                <div class="messages">
-                    </div>
+                <div class="messages" id="messages">
+                </div>
                 <div class="chat-input">
-                    <input type="text" placeholder="Type a message...">
-                    <button class="send-btn">
+                    <input type="text" id="message-input" placeholder="Type a message...">
+                    <button id="send-btn">
                         <i class="fas fa-paper-plane"></i>
                         Send
                     </button>
@@ -85,7 +85,24 @@
         </main>
     </div>
 
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyCkg8vstIMneNVcxBtFpAwghOcZVeaPEKc",
+            authDomain: "astrachat-ardian.firebaseapp.com",
+            projectId: "astrachat-ardian",
+            storageBucket: "astrachat-ardian.firebasestorage.app",
+            messagingSenderId: "752287023950",
+            appId: "1:752287023950:web:383dd2b2a698d749f2941f",
+            measurementId: "G-0LKQGW2WQ9"
+        };
+    </script>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>
+
     <script src="js/script.js"></script>
+    <script src="js/app.js"></script>
 </body>
 
 </html>

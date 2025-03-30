@@ -33,6 +33,7 @@
                 <div class="input-group">
                     <label for="password">Password</label>
                     <input type="password" id="password" name="password" required>
+                    <i class="fas fa-eye toggle-password"></i>
                 </div>
                 <button type="submit" class="auth-btn">
                     <i class="fas fa-user-plus"></i>
@@ -44,6 +45,21 @@
             </div>
         </div>
     </div>
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyCkg8vstIMneNVcxBtFpAwghOcZVeaPEKc",
+            authDomain: "astrachat-ardian.firebaseapp.com",
+            projectId: "astrachat-ardian",
+            storageBucket: "astrachat-ardian.firebasestorage.app",
+            messagingSenderId: "752287023950",
+            appId: "1:752287023950:web:383dd2b2a698d749f2941f",
+            measurementId: "G-0LKQGW2WQ9"
+        };
+    </script>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+
     <script src="js/auth.js"></script>
 </body>
 
