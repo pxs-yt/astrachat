@@ -1,11 +1,6 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     const body = document.body;
     
-    // Initialize Supabase
-    const supabaseUrl = 'https://lmijvxwyvimdfltqgkpk.supabase.co';
-    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxtaWp2eHd5dmltZGZsdHFna3BrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDMyODM4NzEsImV4cCI6MjA1ODg1OTg3MX0.rtyygw7yo0TpHoV4VQn8e6pw1_5EgYRaeQVVB8X0scw';
-    const supabase = supabase.createClient(supabaseUrl, supabaseKey);
-
     // Check for the user's theme preference on page load
     const currentTheme = localStorage.getItem('theme');
     if (currentTheme === 'dark') {
@@ -29,93 +24,103 @@ document.addEventListener('DOMContentLoaded', () => {
         passwordInput.addEventListener('input', validatePassword);
     }
 
-    // Signup form handling
-    const signupForm = document.getElementById('signup-form');
-    if (signupForm) {
-        signupForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const username = signupForm.username.value.trim();
-            const password = signupForm.password.value;
-            const confirmPassword = signupForm['confirm-password'].value;
-            
-            // Validate password match
-            if (password !== confirmPassword) {
-                alert('Passwords do not match!');
-                return;
-            }
-            
-            // Validate password requirements
-            if (!validatePasswordStrength(password)) {
-                alert('Password does not meet all requirements!');
-                return;
-            }
-            
-            try {
-                // Hash password (in a real app, you'd do this on the server)
-                const hashedPassword = await hashPassword(password);
-                
-                // Insert user into database
-                const { data, error } = await supabase
-                    .from('users')
-                    .insert([
-                        { 
-                            username: username,
-                            password_hash: hashedPassword
-                        }
-                    ]);
-                
-                if (error) throw error;
-                
-                alert('Account created successfully! Please log in.');
-                window.location.href = 'login.html';
-            } catch (error) {
-                console.error('Signup error:', error.message);
-                alert('Signup failed: ' + error.message);
-            }
-        });
-    }
+    // Initialize Supabase
+    const supabaseUrl = 'https://lmijvxwyvimdfltqgkpk.supabase.co';
+    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxtaWp2eHd5dmltZGZsdHFna3BrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDMyODM4NzEsImV4cCI6MjA1ODg1OTg3MX0.rtyygw7yo0TpHoV4VQn8e6pw1_5EgYRaeQVVB8X0scw';
+    const supabase = supabase.createClient(supabaseUrl, supabaseKey);
 
-    // Login form handling
-    const loginForm = document.getElementById('login-form');
-    if (loginForm) {
-        loginForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const username = loginForm.username.value.trim();
-            const password = loginForm.password.value;
-            
-            try {
-                // Get user from database
-                const { data: users, error } = await supabase
-                    .from('users')
-                    .select('*')
-                    .eq('username', username)
-                    .single();
+    // Now that Supabase is initialized, we can set up the form handlers
+    setupForms(supabase);
+
+    function setupForms(supabase) {
+        // Signup form handling
+        const signupForm = document.getElementById('signup-form');
+        if (signupForm) {
+            signupForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
                 
-                if (error) throw error;
-                if (!users) throw new Error('User not found');
+                const username = signupForm.username.value.trim();
+                const password = signupForm.password.value;
+                const confirmPassword = signupForm['confirm-password'].value;
                 
-                // Verify password (in a real app, you'd use proper password hashing)
-                const isValid = await verifyPassword(password, users.password_hash);
-                
-                if (!isValid) {
-                    throw new Error('Invalid password');
+                // Validate password match
+                if (password !== confirmPassword) {
+                    alert('Passwords do not match!');
+                    return;
                 }
                 
-                // Store user session
-                localStorage.setItem('user', JSON.stringify({
-                    id: users.id,
-                    username: users.username
-                }));
+                // Validate password requirements
+                if (!validatePasswordStrength(password)) {
+                    alert('Password does not meet all requirements!');
+                    return;
+                }
                 
-                // Redirect to chat
-                window.location.href = 'index.html';
-            } catch (error) {
-                console.error('Login error:', error.message);
-                alert('Login failed: ' + error.message);
-            }
-        });
+                try {
+                    // Hash password (in a real app, you'd do this on the server)
+                    const hashedPassword = await hashPassword(password);
+                    
+                    // Insert user into database
+                    const { data, error } = await supabase
+                        .from('users')
+                        .insert([
+                            { 
+                                username: username,
+                                password_hash: hashedPassword
+                            }
+                        ]);
+                    
+                    if (error) throw error;
+                    
+                    alert('Account created successfully! Please log in.');
+                    window.location.href = 'login.html';
+                } catch (error) {
+                    console.error('Signup error:', error.message);
+                    alert('Signup failed: ' + error.message);
+                }
+            });
+        }
+
+        // Login form handling
+        const loginForm = document.getElementById('login-form');
+        if (loginForm) {
+            loginForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const username = loginForm.username.value.trim();
+                const password = loginForm.password.value;
+                
+                try {
+                    // Get user from database
+                    const { data: users, error } = await supabase
+                        .from('users')
+                        .select('*')
+                        .eq('username', username)
+                        .single();
+                    
+                    if (error) throw error;
+                    if (!users) throw new Error('User not found');
+                    
+                    // Verify password (in a real app, you'd use proper password hashing)
+                    const isValid = await verifyPassword(password, users.password_hash);
+                    
+                    if (!isValid) {
+                        throw new Error('Invalid password');
+                    }
+                    
+                    // Store user session
+                    localStorage.setItem('user', JSON.stringify({
+                        id: users.id,
+                        username: users.username
+                    }));
+                    
+                    // Redirect to chat
+                    window.location.href = 'index.html';
+                } catch (error) {
+                    console.error('Login error:', error.message);
+                    alert('Login failed: ' + error.message);
+                }
+            });
+        }
     }
 
     // Simple password hashing (in a real app, use a proper library like bcrypt)
