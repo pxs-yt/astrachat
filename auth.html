@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1.0, initial-scale=1.0">
+    <title>AstraChat - Authentication</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+
+<body>
+
+    <div class="auth-container">
+        <form class="auth-form" id="signup-form">
+            <h1>Sign Up</h1>
+            <div class="input-group">
+                <label for="signup-email">Email</label>
+                <input type="email" id="signup-email" required>
+            </div>
+            <div class="input-group">
+                <label for="signup-password">Password</label>
+                <input type="password" id="signup-password" required>
+                <i class="fas fa-eye toggle-password" data-target="signup-password"></i>
+            </div>
+            <button type="submit" class="auth-btn">Sign Up</button>
+            <div class="auth-links">
+                <a href="#" id="login-link">Already have an account? Log In</a>
+            </div>
+        </form>
+
+        <form class="auth-form" id="login-form">
+            <h1>Log In</h1>
+            <div class="input-group">
+                <label for="login-email">Email</label>
+                <input type="email" id="login-email" required>
+            </div>
+            <div class="input-group">
+                <label for="login-password">Password</label>
+                <input type="password" id="login-password" required>
+                <i class="fas fa-eye toggle-password" data-target="login-password"></i>
+            </div>
+            <button type="submit" class="auth-btn">Log In</button>
+            <div class="auth-links">
+                <a href="#" id="signup-link">Need an account? Sign Up</a>
+                <a href="#" id="forgot-password-link">Forgot Password?</a>
+            </div>
+        </form>
+
+        <form class="auth-form" id="forgot-password-form">
+            <h1>Forgot Password</h1>
+            <div class="input-group">
+                <label for="forgot-password-email">Email</label>
+                <input type="email" id="forgot-password-email" required>
+            </div>
+            <button type="submit" class="auth-btn">Reset Password</button>
+            <div class="auth-links">
+                <a href="#" id="login-link-forgot">Back to Log In</a>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyCkg8vstIMneNVcxBtFpAwghOcZVeaPEKc",
+            authDomain: "astrachat-ardian.firebaseapp.com",
+            projectId: "astrachat-ardian",
+            storageBucket: "astrachat-ardian.firebasestorage.app",
+            messagingSenderId: "752287023950",
+            appId: "1:752287023950:web:383dd2b2a698d749f2941f",
+            measurementId: "G-0LKQGW2WQ9"
+        };
+    </script>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+
+    <script src="js/auth.js"></script>
+</body>

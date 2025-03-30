@@ -1,0 +1,162 @@
+.profile-settings-container {
+    width: 80%;
+    max-width: 600px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto; /* Center the container */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto 10px;
+}
+
+#change-profile-picture,
+#change-username,
+#change-password,
+#delete-account {
+    background-color: #673ab7;
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 10px auto;
+}
+
+#change-profile-picture:hover,
+#change-username:hover,
+#change-password:hover,
+#delete-account:hover {
+    background-color: #512da8;
+}
+
+.profile-username-section {
+    margin-top: 20px;
+}
+
+.profile-username-section label,
+.profile-info-section label,
+.account-settings-section label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.profile-username-section input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+}
+
+.profile-username-section input:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+.profile-info-section,
+.account-settings-section {
+    margin-top: 20px;
+    border-top: 1px solid #e0e0e0;
+    padding-top: 20px;
+}
+
+.info-group {
+    margin-bottom: 10px;
+}
+
+.info-group p {
+    margin: 5px 0 0;
+    color: #333;
+}
+
+.setting-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.setting-group:last-child {
+    border-bottom: none;
+}
+
+/* --------------- Dark Mode Styles --------------- */
+body.dark-mode .profile-settings-container {
+    background-color: #1e1e1e;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .profile-header h1 {
+    color: #fff;
+}
+
+body.dark-mode .profile-username-section label,
+body.dark-mode .profile-info-section label,
+body.dark-mode .account-settings-section label {
+    color: #ccc;
+}
+
+body.dark-mode .profile-username-section input {
+    background-color: #333;
+    color: #fff;
+    border-color: #555;
+}
+
+body.dark-mode .profile-username-section input:focus {
+    border-color: #673ab7;
+}
+
+body.dark-mode .info-group p {
+    color: #fff;
+}
+
+body.dark-mode .setting-group {
+    border-bottom-color: #333;
+}
+
+/* --------------- Responsive Design --------------- */
+@media (max-width: 768px) {
+    .profile-settings-container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .profile-avatar {
+        width: 80px;
+        height: 80px;
+    }
+
+    .profile-header h1 {
+        font-size: 24px;
+    }
+
+    .profile-username-section input {
+        padding: 8px;
+    }
+
+    .info-group {
+        margin-bottom: 8px;
+    }
+
+    .setting-group {
+        padding: 8px 0;
+    }
+}
